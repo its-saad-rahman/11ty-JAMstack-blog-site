@@ -7,14 +7,14 @@ layout: 'base.njk'
 <div class="section container">
 <h1 class="section-title">Recent articles</h1>
   <ul role="list" class="articles__list flow">
-    {%- for post in collections.post -%}
+    {%- for post in collections.post | reverse-%}
         <li>
           <article class="snippet">
             <img src="{{ post.data.image}}" alt="{{post.data.imageAlt}}" class="snippet__image">
-            <h3 class="snippet__title">{{ post.data.title  }}</h3>
-            <p class="snippet__meta">by <span>{{post.data.author}} on <span>{{post.data.date}}</span></span></p>
+            <h3 class="snippet__title"><a href="{{post.url}}">{{ post.data.title  }}</a></h3>
+            <p class="snippet__meta">by <span>{{post.data.author}} on <span>{{post.date | postDate}}</span></span></p>
             <p class="snippet__body">{{post.data.description}}</p>
-            <a href="/blog/another-article/" class="btn btn--primary">Continue Reading</a>
+            <a href="{{post.url}}" class="btn btn--primary">Continue Reading</a>
           </article>
         </li>
     {%- endfor -%}
