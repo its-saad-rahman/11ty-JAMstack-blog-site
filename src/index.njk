@@ -21,7 +21,7 @@ layout: 'base.njk'
               <a href="#featured-articles" class="btn btn--primary"
                 >Featured articles</a
               >
-              <a href="./blog.html" class="btn btn--neutral"
+              <a href="./blog" class="btn btn--neutral"
                 >Most recent articles</a
               >
             </div>
@@ -41,7 +41,7 @@ layout: 'base.njk'
           </p>
            <ul role="list" class="articles__list flow">
   
-              {%- for post in collections.post | reverse -%}
+              {%- for post in collections.featured | reverse -%}
                 {% include 'article-snippet.njk' %}
               {%- endfor -%}
            </ul>
