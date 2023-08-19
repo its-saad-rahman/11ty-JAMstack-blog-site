@@ -8,6 +8,8 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
   });
   return {
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
     dir: {
       input: 'src',
       output: 'public',
